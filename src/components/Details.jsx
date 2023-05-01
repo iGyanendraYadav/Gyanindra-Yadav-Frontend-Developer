@@ -24,11 +24,11 @@ const Details = () => {
     return (
       <>
         <div
-          onClick={() => setPopup(false)}
+          // onClick={() => setPopup(false)}
           className="wrapper fixed top-0 left-0 right-0 bottom-0 bg-indigo-300 opacity-80"
         >
-          <div className="popup-box text-lg  text-gray-700 font-Roboto font-bold fixed top-[50%] left-[50%] -translate-x-2/4 -translate-y-2/4 p-5 bg-white rounded-xl">
-            <h3 className="text-gray-700 text-xl lg:text-2xl font-extrabold tracking-widest uppercase text-center">
+          <div className="popup-box text-lg  text-gray-700 font-Roboto font-bold fixed top-[50%] left-[50%] -translate-x-2/4 -translate-y-2/4 p-5  lg:p-5 bg-white rounded-xl w-1/2">
+            <h3 className="text-gray-700 text-lg lg:text-2xl font-extrabold tracking-widest uppercase text-center">
               More Details
             </h3>
 
@@ -68,13 +68,7 @@ const Details = () => {
 
 
 
-           
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Incidunt
-              minus excepturi, eaque consectetur autem aspernatur molestiae
-              sequi at ut, qui eos tempora quos hic quas odio odit maiores
-              deserunt mollitia, aliquid dolorum doloribus cupiditate. Aut?
-            </p>
+            <br/>
             <button
               className="w-20 h-10 p-1 rounded-xl bg-red-600 hover:bg-red-700 text-white tracking-widest"
               onClick={() => setPopup(false)}
