@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+
 
 const Details = () => {
   const [spaceX, setSpaceX] = useState([]);
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState("status");
   const [popup, setPopup] = useState(false);
+  const [modalData, setModalData] = useState([]);
+  const [onPage, setOnPage] = useState(1)
+
 
   const MyModal = () => {
     useEffect(() => {
@@ -15,16 +20,55 @@ const Details = () => {
         document.body.style.overflowY = "scroll";
       };
     });
+
     return (
       <>
         <div
           onClick={() => setPopup(false)}
           className="wrapper fixed top-0 left-0 right-0 bottom-0 bg-indigo-300 opacity-80"
         >
-          <div className="popup-box fixed top-[50%] left-[50%] -translate-x-2/4 -translate-y-2/4 p-5 bg-white rounded-xl">
-            <h3 className="text-gray-700 text-lg lg:text-xl font-bold tracking-widest uppercase text-center">
-              Key Notes
+          <div className="popup-box text-lg  text-gray-700 font-Roboto font-bold fixed top-[50%] left-[50%] -translate-x-2/4 -translate-y-2/4 p-5 bg-white rounded-xl">
+            <h3 className="text-gray-700 text-xl lg:text-2xl font-extrabold tracking-widest uppercase text-center">
+              More Details
             </h3>
+
+       
+
+          <div className="flex flex-row justify-around items-center">
+            <span className="uppercase">Capsule Serial : {modalData.capsule_serial} </span>
+            <span className="uppercase">Capsule ID : {modalData.capsule_id} </span>
+          </div>
+
+          <div className="flex flex-row justify-around items-center">
+          <span className="">
+                      <span className="uppercase ">Status : </span>
+                      {modalData.status === "destroyed" ? (
+                        <span className="text-red-500 font-bold p-2 border border-red-500 rounded-xl">
+                          {modalData.status}
+                        </span>
+                      ) : modalData.status === "unknown" ? (
+                        <span className="text-yellow-500 font-bold p-2 border border-yellow-500 rounded-xl">
+                          {modalData.status}
+                        </span>
+                      ) : modalData.status === "retired" ? (
+                        <span className="text-indigo-700 font-bold p-2 border border-indigo-700 rounded-xl">
+                          {modalData.status}
+                        </span>
+                      ) : (
+                        <span className="text-green-500 font-bold p-2 border border-green-500 rounded-xl">
+                          {modalData.status}
+                        </span>
+                      )}
+                    </span>
+
+                    <span>TYPE : {modalData.type}</span>
+          </div>
+
+          { modalData.details && <span> DETAILS : {modalData.details}</span>}
+
+
+
+           
             <p>
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Incidunt
               minus excepturi, eaque consectetur autem aspernatur molestiae
@@ -50,13 +94,28 @@ const Details = () => {
       })
       .then((data) => {
         setSpaceX(data);
-        console.log(data);
+        console.log(data.length);
       });
   };
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [onPage]);
+
+
+  const showDetails = (capsule_serial)=> {
+    setPopup(true);
+    fetch(`https://api.spacexdata.com/v3/capsules/${capsule_serial}`)
+    .then(res => res.json())
+    .then((data) => setModalData(data));
+    console.log(modalData);
+   }
+
+  const handlePageChange = (selectedPage) => {
+    if(selectedPage >= 1 && selectedPage !== onPage){
+        setOnPage(selectedPage)
+    }
+  }
 
   return ReactDOM.createPortal(
     <>
@@ -89,6 +148,7 @@ const Details = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-4 p-5 lg:p-10 font-Roboto">
           {spaceX &&
             spaceX
+              .slice(onPage*5-5, onPage*5)
               .filter(
                 selected === "type"
                   ? (ty) => ty.type.includes(query)
@@ -99,7 +159,8 @@ const Details = () => {
               .map((one, i) => {
                 return (
                   <div
-                    onClick={() => setPopup(true)}
+                   
+                     onClick={(e) => showDetails(one.capsule_serial)}
                     key={i}
                     id={one.capsule_serial}
                     className="  flex flex-col bg-gray-100 text-gray-700 text-lg shadow-lg border border-gray-300  hover:shadow-xl justify-start items-start  rounded-tl-3xl rounded-br-3xl p-5"
@@ -108,10 +169,8 @@ const Details = () => {
                       <span className="uppercase ">Serial : </span>
                       {one.capsule_serial}
                     </h4>
-                    <h4>
-                      <span className="uppercase ">ID : </span>
-                      {one.capsule_id}
-                    </h4>
+                   
+               
                     <h4>
                       <span className="uppercase ">Status : </span>
                       {one.status === "destroyed" ? (
@@ -138,10 +197,33 @@ const Details = () => {
                 );
               })}
 
+
+            
+
           {/* The Popup  */}
 
           {popup && <MyModal />}
+
+
+
+
         </div>
+
+
+
+        {/* PAGINATION */}
+
+        <div className="flex flex-row justify-center items-center space-x-3 text-lg lg:text-xl py-2">
+          <span onClick={()=> handlePageChange(onPage - 1)} className={` ${onPage > 1 ? "" : "hidden"} bg-purple-700 text-white hover:bg-purple-800 rounded-lg p-1`}><span><FaArrowLeft/></span></span>
+          {
+          [...Array(4)].map((_, i) => {
+            return <span onClick={()=> handlePageChange(i + 1)} className={` ${onPage === i+1 ? "bg-purple-700" : "bg-gray-500"}  hover:bg-gray-600 text-white  px-2 py-1 rounded-lg`} key={i+1}>{i+1}</span>
+          })
+          }
+          <span onClick={()=> handlePageChange(onPage + 1)} className={` ${onPage === 4 ? "hidden" : ""} bg-purple-700 text-white hover:bg-purple-800 rounded-lg p-1`}><span><FaArrowRight/></span></span>
+        </div>
+
+
       </div>
     </>,
     document.querySelector(".MyPortalModal")
