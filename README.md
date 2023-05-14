@@ -1,70 +1,88 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# SpaceX : Explore The Space
 
-## Available Scripts
+This is a small project made with React Js, Tailwind CSS & API.
 
-In the project directory, you can run:
+Please have a look once !!!
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Screenshots
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![spaceX](https://github.com/iGyanendraYadav/Gyanindra-Yadav-Frontend-Developer/assets/49138951/d1e1ffca-fd06-4e7f-908d-18af4a3d2c92)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Tech Stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Language** JavaScript
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Library** React Js
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Styling** Tailwind CSS
 
-### `npm run eject`
+**Icons** React Icons
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Lessons Learned
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+While building this project, I revised learning/use of these things. 
+- React Js & ES6
+- Tailwind CSS
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Features
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Responsive to different resolutions
+- Attractive Animations
+- Paginations
+- Multiple filters
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## FAQ
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+#### What is the source of Icons ?
 
-### Analyzing the Bundle Size
+All the Icons used in this project is from <a href="https://react-icons.github.io/react-icons/"> React Icons</a>.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### Can we get the API link ?
 
-### Making a Progressive Web App
+Yes, Off-course. <br>
+<a href="https://api.spacexdata.com/v3">Spacexdata API</a>.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+# Hi, I'm Gyanindra 👋
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+## 🛠 Skills
+ - HTML, CSS , JavaScript
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ - SASS, Tailwind CSS, Bootstrap
+
+ - React Js, Next Js, Redux Js
+
+ - Node Js, Express Js & MongoDB
+
+ - Git & GitHub
+
+ - Framer Motion & Photoshop
+
+
+
+    
+
+## 🔗 Links
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://gyanindra.com/)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/igyanendrayadav/)
+[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/iGyanendraYadav/)
+[![instagram](https://img.shields.io/badge/insta-FD1D1D?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/iGyanendraYadav/)
+
+
+## 🚀 About Me
+I'm working as Analyst at HCL Technologies. I love to design Attractive and Responsive website using React Js, Next Js,Redux, MongoDB, Firebase, Framer Motion, SASS and Tailwind CSS etc.
+<br>
+
+
+Thanks !!!
+
